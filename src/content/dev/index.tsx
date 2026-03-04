@@ -38,6 +38,7 @@ function Dev() {
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
           setVal(e.target.value);
         }}
+        disabled={true}
       />
       {/* button組件測試 */}
       <p className="fs-1">button組件</p>
