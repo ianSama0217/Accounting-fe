@@ -4,6 +4,7 @@ import Input from "../../component/input";
 import Button from "../../component/button";
 import Record from "../../component/record";
 import Select from "../../component/select";
+import Icon from "../../component/icon";
 
 function Dev() {
   const [val, setVal] = useState("");
@@ -97,6 +98,17 @@ function Dev() {
           style="m-2"
         />
       </>
+      {/* icon組件測試 */}
+      <p className="fs-1">icon組件</p>
+      <Icon style={"bi bi-caret-left fs-1 m-1"} />
+      <Icon style={"bi bi-caret-right fs-1 m-1"} />
+      <Icon style={"bi bi-plus-circle fs-1 m-1"} />
+      <Icon
+        style={"bi bi-airplane fs-1 m-1"}
+        onClick={() => {
+          alert("click airplane icon!!!");
+        }}
+      />
       {/* select組件測試 */}
       <>
         <p className="fs-1">select組件</p>
