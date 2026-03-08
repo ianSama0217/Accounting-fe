@@ -5,10 +5,12 @@ import Button from "../../component/button";
 import Record from "../../component/record";
 import Select from "../../component/select";
 import Icon from "../../component/icon";
+import AccountItem from "../../component/accountItem";
 
 function Dev() {
   const [val, setVal] = useState("");
   const [displayRecord, setDisplayRecord] = useState(true);
+  const [displayAccountItem, setDisplayAccountItem] = useState(true);
   const initOptions = [
     { label: "選項1", value: "option1" },
     { label: "選項2", value: "option2" },
@@ -97,18 +99,26 @@ function Dev() {
           onClick={() => setDisplayRecord(!displayRecord)}
           style="m-2"
         />
+        <Button
+          text={"handle account item"}
+          variant="success"
+          onClick={() => setDisplayAccountItem(!displayAccountItem)}
+          style="m-2"
+        />
       </>
       {/* icon組件測試 */}
-      <p className="fs-1">icon組件</p>
-      <Icon style={"bi bi-caret-left fs-1 m-1"} />
-      <Icon style={"bi bi-caret-right fs-1 m-1"} />
-      <Icon style={"bi bi-plus-circle fs-1 m-1"} />
-      <Icon
-        style={"bi bi-airplane fs-1 m-1"}
-        onClick={() => {
-          alert("click airplane icon!!!");
-        }}
-      />
+      <>
+        <p className="fs-1">icon組件</p>
+        <Icon style={"bi bi-caret-left fs-1 m-1"} />
+        <Icon style={"bi bi-caret-right fs-1 m-1"} />
+        <Icon style={"bi bi-plus-circle fs-1 m-1"} />
+        <Icon
+          style={"bi bi-airplane fs-1 m-1"}
+          onClick={() => {
+            alert("click airplane icon!!!");
+          }}
+        />
+      </>
       {/* select組件測試 */}
       <>
         <p className="fs-1">select組件</p>
@@ -161,6 +171,15 @@ function Dev() {
             type={"expense"}
             onChange={handleChange}
           />
+        </>
+      )}
+      {/* account item組件測試 */}
+      {displayAccountItem && (
+        <>
+          <p className="fs-1">account item組件</p>
+          <AccountItem accountName={"測試帳戶"} balance={1000} />
+          <AccountItem accountName={"投資帳戶"} balance={99999} />
+          <AccountItem accountName={"帳戶A"} balance={228761} />
         </>
       )}
     </div>
