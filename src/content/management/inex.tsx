@@ -4,12 +4,8 @@ import { useNavigate } from "react-router-dom";
 function Management() {
   const useNavaigation = useNavigate();
 
-  function handleAccountManagement() {
-    useNavaigation("/management/account");
-  }
-
-  function handleCategoryManagement() {
-    useNavaigation("/management/category");
+  function handleNavaigation(url: string) {
+    useNavaigation(url);
   }
 
   return (
@@ -18,12 +14,12 @@ function Management() {
       <Button
         text={"帳戶管理"}
         style={"fs-1 col-6 mb-3"}
-        onClick={handleAccountManagement}
+        onClick={() => handleNavaigation("/management/account")}
       />
       <Button
         text={"類別管理"}
         style={"fs-1 col-6 mb-3"}
-        onClick={handleCategoryManagement}
+        onClick={() => handleNavaigation("/management/category")}
       />
     </div>
   );
