@@ -1,6 +1,7 @@
 import Dev from "../content/dev";
 import Index from "../content/index";
 import Main from "../content/main";
+import Management from "../content/management/inex";
 
 export const routers = [
   {
@@ -14,6 +15,10 @@ export const routers = [
   {
     path: "/main",
     element: <Main />,
+  },
+  {
+    path: "/management",
+    element: <Management />,
   },
 ];
 
@@ -29,5 +34,9 @@ export const sidebarData = [
   {
     path: "/main",
     title: "首頁",
+  },
+  {
+    path: "/management",
+    title: "管理",
   },
 ];
