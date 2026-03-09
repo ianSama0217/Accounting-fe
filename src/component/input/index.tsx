@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({
   disabled = false,
 }) => {
   return (
-    <div className={`mb-3 ${style}`}>
+    <div className={`${style ?? "mb-3"}`}>
       {label && <label className="form-label">{label}</label>}
       <input
         name={name}
