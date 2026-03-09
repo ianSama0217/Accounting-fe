@@ -1,6 +1,7 @@
 import Dev from "../content/dev";
 import Index from "../content/index";
 import Main from "../content/main";
+import AccountManagement from "../content/management/account";
 import Management from "../content/management/inex";
 
 export const routers = [
@@ -19,6 +20,10 @@ export const routers = [
   {
     path: "/management",
     element: <Management />,
+  },
+  {
+    path: "/management/account",
+    element: <AccountManagement />,
   },
 ];
 
