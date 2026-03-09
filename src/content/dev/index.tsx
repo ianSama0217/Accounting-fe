@@ -6,11 +6,19 @@ import Record from "../../component/record";
 import Select from "../../component/select";
 import Icon from "../../component/icon";
 import AccountItem from "../../component/accountItem";
+import CategoryItem from "../../component/categoryItem";
 
 function Dev() {
+  type Category = {
+    id: number;
+    categoryName: string;
+    type: "income" | "expense";
+  };
+
   const [val, setVal] = useState("");
-  const [displayRecord, setDisplayRecord] = useState(true);
-  const [displayAccountItem, setDisplayAccountItem] = useState(true);
+  const [displayRecord, setDisplayRecord] = useState(false);
+  const [displayAccountItem, setDisplayAccountItem] = useState(false);
+  const [displayCategoryItem, setDisplayCategoryItem] = useState(false);
   const initOptions = [
     { label: "選項1", value: "option1" },
     { label: "選項2", value: "option2" },
@@ -25,6 +33,10 @@ function Dev() {
     date: "",
     note: "",
   });
+  const [categories, setCategories] = useState<Array<Category>>([
+    { id: 1, categoryName: "薪資", type: "income" },
+    { id: 2, categoryName: "餐飲", type: "expense" },
+  ]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -105,6 +117,12 @@ function Dev() {
           onClick={() => setDisplayAccountItem(!displayAccountItem)}
           style="m-2"
         />
+        <Button
+          text={"handle category item"}
+          variant="success"
+          onClick={() => setDisplayCategoryItem(!displayCategoryItem)}
+          style="m-2"
+        />
       </>
       {/* icon組件測試 */}
       <>
@@ -180,6 +198,30 @@ function Dev() {
           <AccountItem accountName={"測試帳戶"} balance={1000} />
           <AccountItem accountName={"投資帳戶"} balance={99999} />
           <AccountItem accountName={"帳戶A"} balance={228761} />
+        </>
+      )}
+      {/* category item組件測試 */}
+      {displayCategoryItem && (
+        <>
+          <p className="fs-1">category item組件</p>
+          {categories.map((c) => {
+            return (
+              <CategoryItem
+                key={c.id}
+                categoryName={c.categoryName}
+                type={c.type}
+                onChange={(newName) => {
+                  setCategories((prev) =>
+                    prev.map((item) =>
+                      item.id === c.id
+                        ? { ...item, categoryName: newName }
+                        : item,
+                    ),
+                  );
+                }}
+              />
+            );
+          })}
         </>
       )}
     </div>
