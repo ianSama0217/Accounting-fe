@@ -2,6 +2,7 @@ import Dev from "../content/dev";
 import Index from "../content/index";
 import Main from "../content/main";
 import AccountManagement from "../content/management/account";
+import CategoryManagement from "../content/management/category";
 import Management from "../content/management/inex";
 
 export const routers = [
@@ -24,6 +25,10 @@ export const routers = [
   {
     path: "/management/account",
     element: <AccountManagement />,
+  },
+  {
+    path: "/management/category",
+    element: <CategoryManagement />,
   },
 ];
 
